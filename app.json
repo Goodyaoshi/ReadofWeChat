@@ -1,0 +1,52 @@
+{
+  "pages": [
+    "pages/bookshelf/bookshelf",
+    "pages/details/details",
+    "pages/bookCity/bookCity",
+    "pages/bookCats/bookCats",
+    "pages/reader/reader",
+    "pages/search/search",
+    "pages/rank/rank",
+    "pages/help/help"
+  ],
+  "subPackages": [],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "免费小说阅读器",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#333",
+    "selectedColor": "#cb1c36",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "iconPath": "/static/img/mybook.png",
+        "selectedIconPath": "/static/img/selectedMybook.png",
+        "pagePath": "pages/bookshelf/bookshelf",
+        "text": "书架"
+      },
+      {
+        "iconPath": "/static/img/book.png",
+        "selectedIconPath": "/static/img/selectedBook.png",
+        "pagePath": "pages/bookCity/bookCity",
+        "text": "书城"
+      },
+      {
+        "iconPath": "/static/img/search.png",
+        "selectedIconPath": "/static/img/selectedSearch.png",
+        "pagePath": "pages/search/search",
+        "text": "搜索"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "plugins": {},
+  "usingComponents": {},
+  "sitemapLocation": "sitemap91.json"
+}
