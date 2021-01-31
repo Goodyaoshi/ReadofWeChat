@@ -1,0 +1,56 @@
+<!--pages/details/details.wxml-->
+<view class="details">
+  <view class="background">
+    <view class="top"></view>
+    <view class="bottom"></view>
+  </view>
+  <view class="bookInfo">
+    <image src="{{bookInfo.cover}}"></image>
+    <text class="bookTitle">{{bookInfo.title}}</text>
+    <text class="bookSite">{{bookInfo.author}}</text>
+    <view class="infoBtn">
+      <navigator hover-class="none" url='/pages/reader/reader?book_id={{bookInfo.id}}&book_title={{bookInfo.title}}' class="startRead">开始阅读</navigator>
+      <view bindtap='addShelf' class="addReader">{{addedShelf ? '已加入书架' : '加入书架'}}</view>
+    </view>
+  </view>
+  <view class='bookMsg'>
+    <view class='rate'>
+      <view wx:key="{{index}}" class="rate_item {{book_rate >= item ? 'rate_active' : ''}}" wx:for="{{[1,2,3,4,5]}}">★</view>
+    </view>
+    <view class='lastChapter'>更新至
+      <text>{{bookInfo.laterChapter}}</text>
+    </view>
+    <view class='info_commit'>
+      <view bindtap='showTab' class='tab'>
+        <view data-id='1' class="tab_item info {{showInfoContent ? 'active' : ''}}">详情</view>
+        <view data-id='0' class="tab_item commit {{showInfoContent ? '' : 'active'}}">评价({{shortReviews.total}})</view>
+      </view>
+      <scroll-view scroll-y='true' wx:if="{{showInfoContent}}" class='info_content'>
+        <view class='info_desc'>
+          简介： {{bookInfo.longIntro}}
+        </view>
+        <view class='Recommend'>
+          <view class='re_topic'>
+            <view class='re_title'>看过这本书的人还在看</view>
+            <view bindtap='randomRecommendBooks' class='re_refresh'>换一换</view>
+          </view>
+          <view class='re_books'>
+            <navigator wx:key="{{index}}" hover-class="none" class='re_bookItem' wx:for="{{showRecommendBooks}}" url='/pages/details/details?book_title={{item.title}}&book_author={{item.author}}&book_desc={{item.shortIntro}}&book_src={{STATIC_HOST+item.cover}}'>
+              <image src="{{STATIC_HOST}}{{item.cover}}"></image>
+              <view class='re_bookTitle'>{{item.title}}</view>
+            </navigator>
+          </view>
+        </view>
+      </scroll-view>
+      <scroll-view scroll-y='true' wx:else class='commit_content'>
+        <view class='review_item' wx:for="{{shortReviews.docs}}" wx:key="{{index}}">
+          <image src="{{STATIC_HOST}}{{item.author.avatar}}"></image>
+          <view class='review_info'>
+            <view class='review_site'>{{item.author.nickname}}</view>
+            <view class='review_content'>{{item.content}}</view>
+          </view>
+        </view>
+      </scroll-view>
+    </view>
+  </view>
+</view>
