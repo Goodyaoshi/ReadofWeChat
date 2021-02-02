@@ -39,6 +39,7 @@
           flex-direction: column;
   position: absolute;
   top: 10rpx;
+  left: 90rpx;
 }
 .bookInfo image {
   width: 250rpx;

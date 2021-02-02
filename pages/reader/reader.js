@@ -362,78 +362,6 @@ var api = __webpack_require__(/*! ../../utils/api.js */ 17);var _default =
         readerCss: this.readerCss });
 
     },
-    // getBookSources: function (book_id) {
-    //   wx.request({
-    //     url: api.book.bookSources(book_id),
-    //     success: res => {
-    //       this.setData({
-    //         bookSources: res.data
-    //       });
-    //       this.getBookChapters(this.data.bookSources[1] ? this.data.bookSources[1]._id : this.data.bookSources[0]._id);
-    //     }
-    //   })
-    // },
-    // getBookChapters: function (source_id) {
-    //   wx.request({
-    //     url: api.book.bookChapters(source_id),
-    //     success: res => {
-    //       this.setData({
-    //         bookChapters: res.data
-    //       });
-    //       this.getChapterContent(this.data.bookChapters.chapters[this.data.indexPage].link);
-    //     }
-    //   })
-    // },
-    // getChapterContent: function (link) {
-    //   wx.showLoading({
-    //     title: '加载中',
-    //     mask: true
-    //   })
-    //   wx.request({
-    //     url: api.book.chapterContent(link),
-    //     success: res => {
-    //       wx.hideLoading();
-    //       if (res.data.chapter.cpContent) {
-    //         let bodyArray = res.data.chapter.cpContent.split(/\n/).map((item) => {  //给每个段落加开头空格 ,方案改为修改wxParse.wxss
-    //           return item
-    //         });
-    //         res.data.chapter.cpContent = bodyArray.join('<br>');
-    //       }
-    //       let bodyArray = res.data.chapter.body.split(/\n/).map((item) => {
-    //         return item
-    //       });
-    //       res.data.chapter.body = bodyArray.join('<br>');
-    //       this.setData({
-    //         showPage: true,
-    //         showChapter: false,  //关闭目录
-    //         indexChapterContent: res.data
-    //       });
-    //       //存储当前读到哪一章
-    //       wx.getStorage({
-    //         key: 'bookShelfData',
-    //         success: res => {
-    //           let data = res.data;
-    //           for (let i = 0; i < data.length; i++) {
-    //             if (this.data.book_id === data[i].bookInfo.id) {
-    //               data[i].readNum = this.data.indexPage + 1;
-    //               data[i].laterScrollTop = this.data.scrollTop
-    //               wx.setStorage({
-    //                 key: 'bookShelfData',
-    //                 data: data,
-    //               })
-    //             }
-    //           }
-    //         },
-    //       });
-    //       //使用Wxparse格式化小说内容   对收费的显示文字   后期换接口处理
-    //       WxParse.wxParse('article', 'html', this.data.indexChapterContent.chapter.cpContent ? '小轻还没有给主人搬到此书，去看看别的吧' : this.data.indexChapterContent.chapter.body, this);
-    //       //等到渲染页面后调节scrollTop
-    //       this.setData({
-    //         scrollTop: this.data.scrollTop
-    //       })
-    //     }
-    //   })
-    // },
     getBookSources: function getBookSources(book_title) {var _this2 = this;
       uni.request({
         url: api.book.MybookSources(book_title),
@@ -491,7 +419,6 @@ var api = __webpack_require__(/*! ../../utils/api.js */ 17);var _default =
               }
             } });
           //等到渲染页面后调节scrollTop
-
           _this4.setData({
             scrollTop: _this4.scrollTop });
 
